@@ -342,6 +342,26 @@
     .q-ic { width: 32px; height: 32px; }
     .q-item[data-tip]::after { display: none; }
   }
+  .file-row { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 14px; background: rgba(255,255,255,.035); border: 1px solid var(--line); min-width: 0; }
+  .file-thumb { width: 64px; height: 64px; flex-shrink: 0; border-radius: 10px; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; background: rgba(0,0,0,.35); }
+  .file-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  #authModal [role="tablist"], #authModal .social-wrap, #signupForm, #authModal [data-tab="signup"] { display: none !important; }
+  #loginForm { margin-top: 24px; }
+  .admin-link { margin-left: 10px; color: var(--dim); font-size: 12px; text-decoration: underline; text-underline-offset: 3px; opacity: .6; }
+  .admin-link:hover { opacity: 1; color: var(--mute); }
+  .h-13 { height: 52px; }
+  .pill-btn { justify-content: center; text-align: center; min-width: 150px; }
+  .kakao-pill { position: relative; padding-left: 40px; padding-right: 40px; }
+  .kakao-pill svg { position: absolute; left: 16px; }
+  .contact-val { font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .contact-cta { position: relative; margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; height: 50px; padding: 0 16px;
+    border-radius: 999px; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; transition: transform .2s, filter .2s, box-shadow .3s; }
+  .contact-cta svg, .btn-ic svg { flex-shrink: 0; }
+  .btn-ic { display: inline-flex; align-items: center; justify-content: center; gap: 9px; }
+  .contact-cta:hover { transform: translateY(-1px); filter: brightness(1.04); }
+  .contact-val + .contact-cta { margin-top: 20px; }
+  .cta-mail { color: #0a0b0e; background: linear-gradient(180deg, #ffffff, #dfe3ec); box-shadow: 0 12px 30px -14px rgba(143,179,255,.8); }
+  .cta-kakao { color: #191919; background: #fee500; box-shadow: 0 12px 30px -14px rgba(254,229,0,.7); }
   .contact-item { border-radius: 18px; background: rgba(255,255,255,.035); border: 1px solid var(--line); }
 
   .motion .rv { transform: translateY(28px); transition: transform 1s cubic-bezier(.2,.7,.2,1); }
@@ -373,16 +393,14 @@
     </nav>
     <div class="flex items-center gap-1.5 shrink-0">
       <div id="authOut" class="flex items-center gap-1">
-        <button type="button" data-auth="login" class="nav-login">로그인</button>
-        <button type="button" data-auth="signup" class="btn-main rounded-full h-10 px-5 inline-flex items-center gap-1.5 text-[14px] whitespace-nowrap">회원가입</button>
+        <a href="#contact" class="btn-main rounded-full h-10 px-5 inline-flex items-center justify-center text-[14px] whitespace-nowrap">견적 문의</a>
       </div>
       <div id="authIn" class="relative" hidden>
         <button type="button" id="userChip" class="user-chip" aria-haspopup="menu" aria-expanded="false">
           <span class="avatar" id="userInitial">S</span><span id="userName" class="hidden sm:inline max-w-[8rem] truncate">내 계정</span><span id="adminBadge" class="admin-badge" hidden>관리자</span><i data-lucide="chevron-down" class="w-4 h-4 text-dim"></i>
         </button>
         <div id="userMenu" class="user-menu" role="menu" hidden>
-          <div id="menuMile" class="menu-mile"></div>
-          <button type="button" role="menuitem" data-menu="account"><i data-lucide="user" class="w-4 h-4"></i>내 정보 · 마일리지 · 신청 내역</button>
+          <button type="button" role="menuitem" data-menu="account"><i data-lucide="user" class="w-4 h-4"></i>내 정보</button>
           <a href="#admin" role="menuitem" id="menuAdmin" hidden><i data-lucide="users" class="w-4 h-4"></i>고객 관리</a>
           <button type="button" role="menuitem" data-menu="logout"><i data-lucide="log-out" class="w-4 h-4"></i>로그아웃</button>
         </div>
@@ -416,7 +434,7 @@
         <div class="stat glass hairline"><dt class="stat-k"><i data-lucide="badge-check" class="w-3.5 h-3.5"></i>Verified Portfolio</dt><dd class="stat-v">실전 레퍼런스 <span id="statCount">5</span>선</dd><dd class="stat-s">배포까지 마친 실제 작업물</dd></div>
         <div class="stat glass hairline"><dt class="stat-k"><i data-lucide="monitor-smartphone" class="w-3.5 h-3.5"></i>Responsive UX</dt><dd class="stat-v">모든 기기 완벽 뷰</dd><dd class="stat-s">PC · 태블릿 · 모바일 대응</dd></div>
         <div class="stat glass hairline"><dt class="stat-k"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i>Dynamic Motion</dt><dd class="stat-v">고급 인터랙션 구현</dd><dd class="stat-s">스크롤 · 3D · 영상 연출</dd></div>
-        <div class="stat glass hairline"><dt class="stat-k"><i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>Precision Refine</dt><dd class="stat-v">맞춤형 디테일</dd><dd class="stat-s">기본 2회 수정 · 마일리지로 더</dd></div>
+        <div class="stat glass hairline"><dt class="stat-k"><i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>Precision Refine</dt><dd class="stat-v">맞춤형 디테일</dd><dd class="stat-s">기본 2회 수정 포함</dd></div>
       </dl>
     </div>
   </section>
@@ -494,17 +512,6 @@
       </div>
       <div class="mt-12 grid md:grid-cols-3 gap-3 items-stretch" id="packages"></div>
 
-      <div class="mt-3 glass rounded-[22px] p-6 md:p-8 rv">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
-          <div>
-            <p class="label">Mileage</p>
-            <h3 class="mt-4 text-[22px] md:text-[26px] font-bold tracking-[-0.03em]">마일리지가 쌓일수록, 무료 수정이 늘어납니다</h3>
-            <p class="mt-1.5 text-mute font-light text-[14.5px]" id="mileIntro"></p>
-          </div>
-          <button type="button" data-auth="signup" class="btn-ghost h-10 px-5 rounded-full text-[14px] font-medium whitespace-nowrap self-start md:self-auto" id="mileJoin">회원가입하고 받기</button>
-        </div>
-        <div class="mt-6 grid sm:grid-cols-3 gap-3" id="tierCards"></div>
-      </div>
     </div>
 
     <div class="mx-auto max-w-wrap mt-20 md:mt-24 sub-divider" aria-hidden="true"></div>
@@ -547,13 +554,13 @@
               <li class="flex gap-3"><span class="how-no">1</span>오른쪽 양식을 작성합니다</li>
               <li class="flex gap-3"><span class="how-no">2</span>'작성 내용 복사하기'를 누릅니다</li>
               <li class="flex gap-3"><span class="how-no">3</span>아래 이메일이나 오픈채팅에 붙여넣어 보냅니다</li>
+              <li class="flex gap-3"><span class="how-no">4</span><span>참고 사진은 <b class="text-ink font-medium">갠톡이나 이메일</b>로 남겨주세요</span></li>
             </ol>
           </div>
         </div>
 
         <!-- 의뢰 양식 -->
         <form id="brief" class="lg:col-span-8 min-w-0 grid gap-4" novalidate>
-          <p id="memberHint" class="member-hint"><i data-lucide="sparkles" class="w-4 h-4 text-accent"></i><span><button type="button" data-auth="signup" class="underline underline-offset-4">회원가입</button> 또는 <button type="button" data-auth="login" class="underline underline-offset-4">로그인</button>하면 연락처가 자동으로 채워지고, 신청 내역을 언제든 다시 볼 수 있습니다.</span></p>
           <p id="pkgChosen" class="share-box !flex-row !items-center !justify-start gap-3 text-[14.5px]" hidden><i data-lucide="package" class="w-[18px] h-[18px] text-accent"></i><span>선택한 패키지: <b class="font-bold"></b></span></p>
           <fieldset class="brief-group">
             <legend class="brief-legend"><span class="brief-no">01</span>기본 정보</legend>
@@ -587,38 +594,9 @@
               <label class="brief-field sm:col-span-2"><span>오시는 길 (주소)</span><input id="b-addr" data-q="오시는 길 (주소)" placeholder="예: 경기도 양주시 ○○로 123, 2층"></label>
             </div>
           </fieldset>
-
-          <fieldset class="brief-group">
-            <legend class="brief-legend"><span class="brief-no">04</span>시각 자료 및 참고사항</legend>
-            <div class="grid gap-4">
-              <div class="brief-field"><label for="b-logo"><span>로고 파일</span></label><input id="b-logo" data-q="로고 파일" placeholder="있음(원본 파일 전송) / 없음 / 추후 전달">
-                <div class="dropzone" data-drop="logo" tabindex="0" role="button" aria-label="로고 파일 추가">
-                  <input type="file" id="f-logo" accept="image/*,.svg,.pdf,.ai,.psd,.eps"  hidden>
-                  <i data-lucide="image-plus" class="w-5 h-5 text-accent"></i>
-                  <span><b>파일 선택</b> · 끌어다 놓기 · <b>Ctrl+V</b>로 붙여넣기</span>
-                </div>
-                <ul class="thumbs" data-thumbs="logo"></ul>
-              </div>
-              <div class="brief-field"><label for="b-photo"><span>매장 · 시술 · 현장 사진</span></label><input id="b-photo" data-q="매장/시술/현장 사진" placeholder="사진에 대한 설명이 있으면 적어주세요 (예: 매장 외관 3장, 시술 전후 5장)">
-                <div class="dropzone" data-drop="photo" tabindex="0" role="button" aria-label="사진 파일 추가">
-                  <input type="file" id="f-photo" accept="image/*,.svg,.pdf,.ai,.psd,.eps" multiple hidden>
-                  <i data-lucide="image-plus" class="w-5 h-5 text-accent"></i>
-                  <span><b>파일 선택</b> · 끌어다 놓기 · <b>Ctrl+V</b>로 붙여넣기</span>
-                </div>
-                <ul class="thumbs" data-thumbs="photo"></ul>
-                <small><i data-lucide="sparkles" class="w-3.5 h-3.5"></i>사진이 부족하신 경우, 고급 스톡 이미지로 어울리게 대체해 드립니다.</small>
-              </div>
-              <div id="shareBox" class="share-box" hidden>
-                <div class="min-w-0"><p class="text-[14.5px] font-bold" id="shareTitle">첨부한 파일 0개</p><p class="text-[13px] text-mute font-light mt-0.5" id="shareText"></p></div>
-                <button type="button" id="shareBtn" class="pill-btn pill-mail shrink-0" hidden><i data-lucide="send" class="w-4 h-4"></i>사진과 의뢰서 함께 보내기</button>
-              </div>
-              <label class="brief-field"><span>참고용 레퍼런스 사이트 <em>선택사항</em></span><input id="b-ref" data-q="참고용 레퍼런스 사이트" placeholder="벤치마킹하고 싶은, 마음에 드는 웹사이트 링크가 있다면 알려주세요!"></label>
-            </div>
-          </fieldset>
-
-          <div class="flex flex-col sm:flex-row gap-3 sm:items-center pt-2">
-            <button type="button" id="briefSubmit" class="btn-main h-12 px-6 rounded-full inline-flex items-center justify-center gap-2 text-[15px] whitespace-nowrap shrink-0"><i data-lucide="send" class="w-4 h-4"></i><span>버튼 한 번으로 신청하기</span></button>
-            <button type="button" id="briefCopy" class="btn-ghost h-12 px-6 rounded-full inline-flex items-center justify-center gap-2 text-[15px] font-medium whitespace-nowrap shrink-0"><i data-lucide="copy" class="w-4 h-4"></i><span>작성 내용 복사하기</span></button>
+          <div class="grid sm:grid-cols-2 gap-3 pt-2">
+            <button type="button" id="briefSubmit" class="btn-main btn-ic h-13 px-6 rounded-full text-center text-[15.5px] font-semibold whitespace-nowrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg><span>버튼 한 번으로 신청하기</span></button>
+            <button type="button" id="briefCopy" class="btn-ghost btn-ic h-13 px-6 rounded-full text-center text-[15.5px] font-medium whitespace-nowrap"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>작성 내용 복사하기</span></button>
           </div>
           <div class="flex flex-wrap items-center gap-3 -mt-1">
             <p id="briefMsg" class="text-[13.5px] text-mute" role="status" aria-live="polite"></p>
@@ -631,13 +609,13 @@
             </div>
             <textarea id="briefOut" class="brief-out" rows="8" readonly aria-label="복사할 의뢰서 내용"></textarea>
           </div>
-          <p class="text-[12.5px] text-dim">로고와 사진 파일은 아래 이메일이나 오픈채팅으로 함께 보내주세요. 작성한 내용은 이 브라우저에만 임시 저장됩니다.</p>
+          <p class="text-[12.5px] text-dim">참고 사진 · 로고 파일은 갠톡이나 이메일로 남겨주세요. 작성한 내용은 이 브라우저에만 임시 저장됩니다.</p>
         </form>
       </div>
 
       <div class="mt-12 pt-10 border-t border-[color:var(--line)]">
         <p class="font-mono text-[11.5px] text-dim uppercase tracking-[.12em]">작성한 의뢰서는 여기로 보내주세요</p>
-        <div class="mt-4 grid md:grid-cols-3 gap-3" id="contacts"></div>
+        <div class="mt-4 grid md:grid-cols-2 xl:grid-cols-3 gap-3" id="contacts"></div>
       </div>
     </div>
   </section>
@@ -669,7 +647,7 @@
   <div class="modal-bg" data-close></div>
   <div class="modal-panel">
     <div class="flex items-start justify-between gap-4">
-      <div><p class="label">Member</p><h2 id="authTitle" class="mt-3 text-[24px] font-bold tracking-[-0.03em]">회원가입</h2></div>
+      <div><p class="label">Admin</p><h2 id="authTitle" class="mt-3 text-[24px] font-bold tracking-[-0.03em]">회원가입</h2></div>
       <button type="button" class="out-close" data-close aria-label="닫기"><i data-lucide="x" class="w-4 h-4"></i>닫기</button>
     </div>
     <div class="mt-5 grid grid-cols-2 p-1 rounded-full" style="background:rgba(255,255,255,.04);border:1px solid var(--line)" role="tablist">
@@ -678,7 +656,7 @@
     </div>
     <p id="demoNote" class="mt-4 rounded-xl px-4 py-3 text-[13px] leading-relaxed" style="background:rgba(255,181,71,.08);border:1px solid rgba(255,181,71,.3);color:#ffd79a" hidden>체험 모드입니다. 아직 데이터베이스가 연결되지 않아 이 브라우저에만 저장됩니다.</p>
 
-    <div class="mt-6">
+    <div class="mt-6 social-wrap">
       <p class="text-[13px] text-dim text-center" id="socialTitle">간편하게 시작하기</p>
       <div class="mt-3 grid gap-2">
         <button type="button" class="social-btn s-google" data-social="google"><span class="s-ic"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1A10 10 0 0 0 2 12c0 1.6.4 3.2 1.1 4.6L6.4 14z"/><path fill="#EA4335" d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10C7.2 7.7 9.4 5.9 12 5.9z"/></svg></span>Google로 계속하기</button>
@@ -727,7 +705,6 @@
       <div><p class="label">My account</p><h2 id="accTitle" class="mt-3 text-[24px] font-bold tracking-[-0.03em]">내 정보</h2><p id="a-email" class="text-[13.5px] text-dim mt-1"></p></div>
       <button type="button" class="out-close" data-close aria-label="닫기"><i data-lucide="x" class="w-4 h-4"></i>닫기</button>
     </div>
-    <div id="mileCard" class="mile-card mt-6"></div>
     <form id="accForm" class="mt-6 grid gap-4" novalidate>
       <div class="grid sm:grid-cols-2 gap-4">
         <label class="brief-field"><span>이름</span><input id="a-name" autocomplete="name"></label>
@@ -742,6 +719,21 @@
       <p class="font-mono text-[11.5px] text-dim uppercase tracking-[.1em]">내 신청 내역</p>
       <ul id="myInq" class="mt-3 grid gap-2"></ul>
     </div>
+  </div>
+</div>
+
+<div id="filesModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="filesTitle" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-panel" style="max-width:720px">
+    <div class="flex items-start justify-between gap-4">
+      <div><p class="label">Admin · Files</p><h2 id="filesTitle" class="mt-3 text-[22px] font-bold tracking-[-0.03em]">등록한 사진 · 파일</h2><p id="filesWho" class="text-[13.5px] text-dim mt-1"></p></div>
+      <button type="button" class="out-close" data-close aria-label="닫기"><i data-lucide="x" class="w-4 h-4"></i>닫기</button>
+    </div>
+    <div class="mt-5 flex flex-wrap items-center gap-2">
+      <button type="button" id="filesAll" class="btn-main h-10 px-5 rounded-full text-[14px] inline-flex items-center gap-1.5"><i data-lucide="download" class="w-4 h-4"></i><span>전체 다운로드</span></button>
+      <p id="filesMsg" class="text-[13px] text-mute"></p>
+    </div>
+    <ul id="filesList" class="mt-5 grid sm:grid-cols-2 gap-3"></ul>
   </div>
 </div>
 
@@ -788,12 +780,13 @@
 <footer class="gutter pb-10">
   <div class="mx-auto max-w-wrap pt-8 border-t border-[color:var(--line)] flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-[13px] text-dim">
     <p><span data-brand>studio.dev</span> · Freelance Web Developer</p>
-    <p>© <span id="year" class="num">2026</span> All rights reserved.</p>
+    <p>© <span id="year" class="num">2026</span> All rights reserved. <button type="button" data-auth="login" class="admin-link">관리자</button></p>
   </div>
 </footer>
 
 <script>
 (() => {
+  try { window.lucide && lucide.createIcons(); } catch {}
   /* ══════════ 여기만 고치면 됩니다 ══════════ */
   const BRAND = 'studio.dev';                       // 상단 로고 이름
   // 데이터베이스(Firebase) 설정: Firebase 콘솔 → 프로젝트 설정 → 내 앱(웹)에서 복사해 붙여넣으세요.
@@ -865,7 +858,7 @@
   const stack = [
     { icon: 'screen', title: '홈페이지 화면 제작', desc: '방문자가 보는 모든 화면을 처음부터 직접 만듭니다. 템플릿을 끼워 맞추지 않아 원하는 디자인 그대로 구현할 수 있습니다.', tech: ['HTML5', 'CSS3', 'JavaScript', 'React'] },
     { icon: 'devices', title: '모든 기기에 맞춘 디자인', desc: 'PC, 태블릿, 휴대폰 어디서 열어도 글자와 사진이 깨지지 않고 보기 좋게 정리됩니다. 어두운 화면(다크 모드)도 만들 수 있습니다.', tech: ['Tailwind CSS', '반응형', '다크 모드'] },
-    { icon: 'motion', title: '움직이는 화면 연출', desc: '스크롤하면 부드럽게 나타나는 효과, 영상 배경, 탭 · 필터 · 펼침 메뉴처럼 눈길을 끄는 움직임을 넣습니다.', tech: ['스크롤 애니메이션', '영상 배경', 'Framer Motion'] },
+    { icon: 'building', title: '병원 · 호텔 등 시설 사이트', desc: '병원, 호텔 등 시설 관련 사이트를 전문적으로 만듭니다. 진료 · 객실 · 공간 안내부터 예약 문의까지 방문자가 바로 찾는 구성으로 담아 드립니다.', tech: ['병원 · 클리닉', '호텔 · 숙박', '갤러리 · 대관'] },
     { icon: 'form', title: '문의 · 예약 · 회원 기능', desc: '상담 신청서와 예약 폼을 만들고, 필요하면 로그인과 고객 정보 저장, 관리자용 고객 목록까지 연결합니다.', tech: ['문의 · 예약 폼', '로그인', '데이터베이스'] },
   ];
   const steps = [
@@ -887,6 +880,7 @@
   const IC = {
     screen: '<rect x="2.5" y="4" width="19" height="16" rx="2.2"/><path d="M2.5 8.5h19"/><circle cx="5.3" cy="6.3" r=".5" fill="url(#icg)"/><rect x="5.5" y="11.5" width="6" height="5.5" rx="1"/><path d="M14 12h4.5M14 14.5h4.5M14 17h3" opacity=".7"/>',
     devices: '<rect x="2.5" y="3.5" width="13" height="10" rx="1.8"/><path d="M6.5 17h5M9 13.5V17"/><rect x="14.5" y="8.5" width="7" height="12" rx="1.6" fill="#0d1017"/><path d="M17 18.2h2"/>',
+    building: '<path d="M4 21V5.5A1.5 1.5 0 0 1 5.5 4h7A1.5 1.5 0 0 1 14 5.5V21"/><path d="M14 10h4.5A1.5 1.5 0 0 1 20 11.5V21"/><path d="M2.5 21h19"/><path d="M7.5 8h3M7.5 11.5h3M7.5 15h3" opacity=".75"/><path d="M8 21v-2.5h2V21"/><path d="M16.5 14h1M16.5 17h1" opacity=".75"/>',
     motion: '<circle cx="15" cy="12" r="5.5"/><path d="M2.5 9h5M1.5 12h5M2.5 15h5" opacity=".75"/><path d="M13.2 9.8l3.6 2.2-3.6 2.2z" fill="url(#icg)" stroke="none"/>',
     form: '<rect x="3.5" y="2.8" width="13" height="18.4" rx="2"/><path d="M6.5 7h7M6.5 10.5h7M6.5 14h4" opacity=".75"/><circle cx="18" cy="15.5" r="2.4" fill="#0d1017"/><path d="M14.3 21.2c.5-1.9 2-3 3.7-3s3.2 1.1 3.7 3"/>',
     globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
@@ -973,16 +967,18 @@
 
   // 연락처
   const contactItems = [['mail', 'Email', CONTACT.email], ['message-circle', 'Open chat', CONTACT.chat], ['clock', 'Available', CONTACT.hours]];
+  const KAKAO_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3.6c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-.9 3.4c-.1.3.3.6.6.4l4-2.6c.4 0 .7.1 1.1.1 5 0 9-3.1 9-7s-4-7.3-9-7.3z"/></svg>';
+  const MAIL_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>';
   $('#contacts').innerHTML = contactItems.map(([ic, k, v], i) => `
-    <div class="contact-item p-5 min-w-0">
+    <div class="contact-item p-5 min-w-0 flex flex-col ${ic === 'clock' ? 'md:col-span-2 xl:col-span-1' : ''}">
       <div class="flex items-center justify-between gap-3">
         <span class="inline-flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[.1em] text-dim"><i data-lucide="${ic}" class="w-3.5 h-3.5"></i>${esc(k)}</span>
         ${i < 2 ? `<button type="button" class="copy text-[12px] text-mute hover:text-[color:var(--fg)] inline-flex items-center gap-1 transition" data-v="${esc(v)}"><i data-lucide="copy" class="w-3.5 h-3.5"></i><span>복사</span></button>` : ''}
       </div>
-      <p class="mt-3 font-medium text-[15.5px] break-all select-all">${esc(v)}</p>
-      ${ic === 'message-circle' ? `<a href="${esc(v)}" target="_blank" rel="noopener" class="pill-btn pill-kakao mt-4"><svg viewBox="0 0 24 24" class="w-[17px] h-[17px]" aria-hidden="true"><path fill="currentColor" d="M12 3.6c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-.9 3.4c-.1.3.3.6.6.4l4-2.6c.4 0 .7.1 1.1.1 5 0 9-3.1 9-7s-4-7.3-9-7.3z"/></svg>오픈채팅 바로가기</a>` : ''}
+      <p class="contact-val mt-3 select-all" title="${esc(v)}">${esc(String(v).replace(/^https?:\/\//, ''))}</p>
+      ${ic === 'mail' ? `<a href="#" id="gmailBtn" target="_blank" rel="noopener" class="contact-cta cta-mail">${MAIL_SVG}<span>메일 바로 쓰기</span></a><a href="#" id="mailtoBtn" hidden>기본 메일 앱</a>` : ''}
+      ${ic === 'message-circle' ? `<a href="${esc(v)}" target="_blank" rel="noopener" class="contact-cta cta-kakao">${KAKAO_SVG}<span>오픈채팅 바로가기</span></a>` : ''}
       ${ic === 'clock' ? `<p class="mt-3 text-[13.5px] text-mute font-light leading-[1.7]">${esc(CONTACT.hoursNote)}</p>` : ''}
-      ${ic === 'mail' ? `<div class="mt-4 flex flex-wrap items-center gap-2"><a href="#" id="gmailBtn" target="_blank" rel="noopener" class="pill-btn pill-mail"><i data-lucide="pen-line" class="w-4 h-4"></i>메일 바로 쓰기</a><a href="#" id="mailtoBtn" class="text-[12.5px] text-dim hover:text-[color:var(--fg)] underline underline-offset-4 decoration-[color:var(--line-2)]">기본 메일 앱</a></div>` : ''}
     </div>`).join('');
   $('#contacts').addEventListener('click', async e => {
     const b = e.target.closest('.copy'); if (!b) return;
@@ -1038,6 +1034,8 @@
     files[key] = key === 'logo' ? [...files.logo, ...incoming].slice(-3) : [...files.photo, ...incoming].slice(0, 30);
     renderThumbs(key);
   };
+  addEventListener('dragover', e => { if (!e.target.closest?.('[data-drop]')) e.preventDefault(); });
+  addEventListener('drop', e => { if (!e.target.closest?.('[data-drop]')) e.preventDefault(); });
   brief.querySelectorAll('[data-drop]').forEach(zone => {
     const key = zone.dataset.drop, input = zone.querySelector('input[type=file]');
     zone.addEventListener('click', () => input.click());
@@ -1048,10 +1046,6 @@
     zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('over'); addFiles(key, e.dataTransfer.files); });
     zone.addEventListener('paste', e => { const f = [...(e.clipboardData?.files || [])]; if (f.length) { e.preventDefault(); addFiles(key, f); } });
   });
-  // 로고/사진 입력칸에 커서를 두고 붙여넣어도 첨부되도록
-  [['b-logo', 'logo'], ['b-photo', 'photo']].forEach(([id, key]) => $('#' + id).addEventListener('paste', e => {
-    const f = [...(e.clipboardData?.files || [])]; if (f.length) { e.preventDefault(); addFiles(key, f); }
-  }));
   brief.addEventListener('click', e => {
     const b = e.target.closest('[data-remove]'); if (!b) return;
     const [key, i] = b.dataset.remove.split(':');
@@ -1060,21 +1054,7 @@
   });
   // 보내기: 휴대폰 등 공유 기능이 있으면 카톡·메일로 파일째 공유, 없으면 첨부 방법 안내
   const allFiles = () => [...files.logo, ...files.photo];
-  const canShareFiles = () => { try { return !!(navigator.canShare && navigator.canShare({ files: allFiles() })); } catch { return false; } };
-  function updateShare() {
-    const n = allFiles().length, box = $('#shareBox');
-    box.hidden = !n; if (!n) return;
-    $('#shareTitle').textContent = `첨부한 파일 ${n}개`;
-    const share = canShareFiles();
-    $('#shareBtn').hidden = !share;
-    $('#shareText').textContent = share
-      ? '버튼을 누르면 카카오톡 · 메일 등을 골라 사진과 의뢰서를 한 번에 보낼 수 있습니다.'
-      : "파일은 자동으로 전송되지 않습니다. '메일 바로 쓰기'로 연 메일이나 오픈채팅에서 같은 파일을 첨부해 주세요.";
-  }
-  $('#shareBtn').addEventListener('click', async () => {
-    try { await navigator.share({ files: allFiles(), title: '홈페이지 제작 의뢰', text: buildBrief(false) }); }
-    catch (err) { if (err && err.name !== 'AbortError') { $('#shareBtn').hidden = true; $('#shareText').textContent = "이 화면에서는 바로 보내기가 지원되지 않습니다. '메일 바로 쓰기'로 연 메일이나 오픈채팅에서 파일을 첨부해 주세요."; } }
-  });
+function updateShare() {}
 
   const val = (id, blank) => blank ? '' : ($('#' + id).value.trim());
   const buildBrief = blank => {
@@ -1083,7 +1063,6 @@
     return [
       '[홈페이지 제작 의뢰서]', '',
       ...(!blank && chosenPkg ? [`- 희망 패키지: ${chosenPkg.name} 패키지 (${won(chosenPkg.price)})`, ''] : []),
-      ...(!blank && me && myProfile ? [`- 회원 등급: ${tierOf(myProfile.mileage).tier.name} (마일리지 ${fmtP(myProfile.mileage)}, 무료 수정 ${revText(tierOf(myProfile.mileage).tier)})`, ''] : []),
       '1. 기본 정보',
       `- 상호명 (브랜드명): ${v('b-name')}`,
       `- 업종: ${v('b-biz')}`,
@@ -1097,10 +1076,7 @@
       `- 영업 시간 / 상담 가능 시간: ${v('b-hours')}`,
       `- 연락처: ${v('b-contact')}`,
       `- 오시는 길 (주소): ${v('b-addr')}`, '',
-      '4. 시각 자료 및 참고사항',
-      `- 로고 파일: ${v('b-logo')}${blank ? '' : fileNote('logo')}`,
-      `- 매장/시술/현장 사진: ${v('b-photo')}${blank ? '' : fileNote('photo')}`,
-      `- 참고용 레퍼런스 사이트: ${v('b-ref')}`,
+      '※ 로고 · 참고 사진은 갠톡이나 이메일로 따로 보내드립니다.',
     ].join('\n');
   };
   const out = $('#briefOut'), outBox = $('#briefOutBox'), msg = $('#briefMsg');
@@ -1141,6 +1117,40 @@
   ['pointerenter', 'focus', 'pointerdown', 'click'].forEach(ev => qMail.addEventListener(ev, () => { setMailLinks(); qMail.href = gmailBtn.href; }));
   setMailLinks(); qMail.href = gmailBtn.href;
 
+  // 첨부파일: 사진은 보기 좋은 크기(긴 변 1600px)로 줄여서, 그 외 파일은 원본 그대로 저장
+  const MAX_FILE = 6 * 1024 * 1024;
+  const readAsDataURL = blob => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = no; r.readAsDataURL(blob); });
+  const shrinkImage = file => new Promise(ok => {
+    if (!/^image\/(jpeg|png|webp|heic|heif)$/i.test(file.type)) return ok(file);
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = () => {
+      const k = Math.min(1, 1600 / Math.max(img.width, img.height));
+      const c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+      const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      c.toBlob(b => ok(b && b.size < file.size ? Object.assign(b, { _name: file.name.replace(/\.[^.]+$/, '') + '.jpg' }) : file), 'image/jpeg', 0.85);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); ok(file); };
+    img.src = url;
+  });
+  const uploadFiles = async (inquiryId, onStep) => {
+    const list = [...files.logo.map(f => ['로고', f]), ...files.photo.map(f => ['사진', f])];
+    let done = 0, failed = 0;
+    for (const [kind, f] of list) {
+      onStep(done + 1, list.length);
+      try {
+        const blob = await shrinkImage(f);
+        if (blob.size > MAX_FILE) { failed++; continue; }
+        const dataUrl = await readAsDataURL(blob);
+        await Store.uploadAttachment({ uid: me.uid, email: me.email || '', inquiryId: inquiryId || '', kind, name: blob._name || f.name,
+          type: blob.type || f.type || 'application/octet-stream', size: blob.size, createdAt: nowISO() }, dataUrl);
+        done++;
+      } catch { failed++; }
+    }
+    return { done, failed };
+  };
+  let pendingSubmit = false;
+
   // 버튼 한 번으로 신청하기: 작성한 의뢰서를 이메일로 바로 접수 (FormSubmit 이용)
   const submitBtn = $('#briefSubmit'), mailFallback = $('#briefMailFallback');
   const say = (text, color) => { msg.style.color = color || 'var(--mute)'; msg.textContent = text; };
@@ -1148,6 +1158,12 @@
     mailFallback.hidden = true;
     const contact = $('#b-contact').value.trim();
     if (!contact) { say('답변드릴 연락처(전화번호 또는 카카오톡 채널)를 적어주세요.', 'var(--warn, #ffb547)'); $('#b-contact').focus(); return; }
+    await storeReady;
+    if (allFiles().length && !me) {
+      pendingSubmit = true;
+      say('사진 · 파일을 회원 정보에 등록하려면 로그인이 필요합니다. 로그인하면 신청이 자동으로 이어집니다.', 'var(--mute)');
+      openAuth('login'); return;
+    }
     const label = submitBtn.querySelector('span');
     submitBtn.disabled = true; submitBtn.style.opacity = '.6'; label.textContent = '보내는 중…';
     const { su } = mailParts();
@@ -1160,12 +1176,16 @@
       의뢰서: buildBrief(false),
     };
     // 1) 데이터베이스에 저장 (실제 DB 연결 시에만 '접수 완료'로 인정)
-    let savedToDb = false;
+    let savedToDb = false, inquiryId = '', up = { done: 0, failed: 0 };
     try {
-      await Store.addInquiry({ uid: me ? me.uid : null, email: me ? me.email : null, name: payload.상호명, contact, package: payload.희망패키지,
+      inquiryId = await Store.addInquiry({ uid: me ? me.uid : null, email: me ? me.email : null, name: payload.상호명, contact, package: payload.희망패키지,
         files: payload.첨부예정파일, brief: payload.의뢰서, createdAt: nowISO(), status: 'new' });
       savedToDb = Store.mode === 'firebase';
     } catch {}
+    // 1-2) 첨부한 사진 · 파일을 회원 정보에 저장
+    if (me && allFiles().length) {
+      up = await uploadFiles(inquiryId, (i, n) => { label.textContent = `사진 올리는 중 ${i}/${n}…`; });
+    }
     // 2) 이메일 알림
     try {
       if (savedToDb) { fetch(`https://formsubmit.co/ajax/${encodeURIComponent(CONTACT.email)}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) }).catch(() => {}); }
@@ -1186,9 +1206,9 @@
       submitBtn.disabled = false; submitBtn.style.opacity = '';
     }
     function finishOk() {
-      say(allFiles().length
-        ? '신청이 접수되었습니다! 확인하는 대로 남겨주신 연락처로 답변드리겠습니다. 첨부한 사진은 오픈채팅이나 메일로 함께 보내주세요.'
-        : '신청이 접수되었습니다! 확인하는 대로 남겨주신 연락처로 답변드리겠습니다.', 'var(--ok)');
+      const fileNote = up.done ? ` 사진 · 파일 ${up.done}개도 회원 정보에 함께 등록되었습니다.` : '';
+      const failNote = up.failed ? ` (${up.failed}개는 용량이 커서 올리지 못했습니다. 오픈채팅이나 메일로 보내주세요.)` : '';
+      say('신청이 접수되었습니다! 확인하는 대로 남겨주신 연락처로 답변드리겠습니다.' + fileNote + failNote, 'var(--ok)');
       label.textContent = '신청 완료';
     }
   });
@@ -1256,7 +1276,13 @@
     async resetPw() { fail('demo/reset'); },
     async getProfile(uid) { return ls.get('demo-users', {})[uid]?.profile || null; },
     async saveProfile(uid, data) { const users = ls.get('demo-users', {}); if (!users[uid]) fail('x'); users[uid].profile = { ...users[uid].profile, ...data, updatedAt: nowISO() }; ls.set('demo-users', users); },
-    async addInquiry(d) { const list = ls.get('demo-inquiries', []); list.push({ id: 'q' + Date.now(), ...d }); ls.set('demo-inquiries', list); },
+    async addInquiry(d) { const list = ls.get('demo-inquiries', []); const id = 'q' + Date.now(); list.push({ id, ...d }); ls.set('demo-inquiries', list); return id; },
+    // 체험 모드: 파일은 이 창이 열려 있는 동안만 보관 (브라우저 저장 공간이 작아서)
+    files: [],
+    async uploadAttachment(meta, dataUrl) { this.files.push({ id: 'f' + Date.now() + Math.random().toString(36).slice(2, 6), ...meta, dataUrl }); },
+    async listAttachments(uid) { return this.files.filter(f => !uid || f.uid === uid).map(({ dataUrl, ...m }) => m); },
+    async getAttachmentData(id) { return this.files.find(f => f.id === id)?.dataUrl || ''; },
+    async deleteAttachment(id) { this.files = this.files.filter(f => f.id !== id); },
     async myInquiries(uid) { return ls.get('demo-inquiries', []).filter(q => q.uid === uid); },
     async allUsers() { return Object.entries(ls.get('demo-users', {})).map(([id, u]) => ({ id, ...u.profile })); },
     async allInquiries() { return ls.get('demo-inquiries', []); },
@@ -1304,7 +1330,31 @@
     async resetPw(email) { await this.auth.sendPasswordResetEmail(email); },
     async getProfile(uid) { const d = await this.db.collection('users').doc(uid).get(); return d.exists ? d.data() : null; },
     async saveProfile(uid, data) { await this.db.collection('users').doc(uid).set({ ...data, updatedAt: nowISO() }, { merge: true }); },
-    async addInquiry(d) { await this.db.collection('inquiries').add(d); },
+    async addInquiry(d) { const ref = await this.db.collection('inquiries').add(d); return ref.id; },
+    // 첨부파일: Firestore 문서 한 개 용량 제한(1MB) 때문에 조각(chunk)으로 나눠 저장
+    async uploadAttachment(meta, dataUrl) {
+      const CH = 700000, parts = Math.ceil(dataUrl.length / CH);
+      const ref = await this.db.collection('attachments').add({ ...meta, chunks: parts });
+      let batch = this.db.batch(), n = 0;
+      for (let i = 0; i < parts; i++) {
+        batch.set(ref.collection('chunks').doc(String(i).padStart(3, '0')), { i, data: dataUrl.slice(i * CH, (i + 1) * CH) });
+        if (++n === 8) { await batch.commit(); batch = this.db.batch(); n = 0; }
+      }
+      if (n) await batch.commit();
+    },
+    async listAttachments(uid) {
+      const q = uid ? this.db.collection('attachments').where('uid', '==', uid) : this.db.collection('attachments');
+      const snap = await q.get(); return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    },
+    async getAttachmentData(id) {
+      const snap = await this.db.collection('attachments').doc(id).collection('chunks').get();
+      return snap.docs.map(d => d.data()).sort((a, b) => a.i - b.i).map(c => c.data).join('');
+    },
+    async deleteAttachment(id) {
+      const ref = this.db.collection('attachments').doc(id);
+      const snap = await ref.collection('chunks').get();
+      await Promise.all(snap.docs.map(d => d.ref.delete())); await ref.delete();
+    },
     async myInquiries(uid) { const s = await this.db.collection('inquiries').where('uid', '==', uid).get(); return s.docs.map(x => ({ id: x.id, ...x.data() })); },
     async allUsers() { const s = await this.db.collection('users').get(); return s.docs.map(x => ({ id: x.id, ...x.data() })); },
     async allInquiries() { const s = await this.db.collection('inquiries').get(); return s.docs.map(x => ({ id: x.id, ...x.data() })); },
@@ -1333,13 +1383,13 @@
   const showTab = tab => {
     authModal.querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === tab));
     $('#loginForm').hidden = tab !== 'login'; $('#signupForm').hidden = tab !== 'signup';
-    $('#authTitle').textContent = tab === 'login' ? '다시 오신 것을 환영합니다' : '회원가입';
+    $('#authTitle').textContent = '관리자 로그인';
     $('#socialTitle').textContent = tab === 'login' ? '간편 로그인' : '간편하게 가입하기';
     setAuthMsg('');
   };
   const openModal = (el, focusSel) => { lastFocus = document.activeElement; el.hidden = false; document.body.style.overflow = 'hidden'; setTimeout(() => el.querySelector(focusSel)?.focus(), 50); };
   const closeModal = el => { el.hidden = true; document.body.style.overflow = ''; lastFocus?.focus?.(); };
-  const openAuth = tab => { showTab(tab); const le = ls.get('last-email', ''); if (le && !$('#l-email').value) $('#l-email').value = le; $('#demoNote').hidden = Store.mode !== 'demo'; openModal(authModal, tab === 'login' ? '#l-email' : '#s-name'); };
+  const openAuth = tab => { tab = 'login'; showTab(tab); const le = ls.get('last-email', ''); if (le && !$('#l-email').value) $('#l-email').value = le; $('#demoNote').hidden = Store.mode !== 'demo'; openModal(authModal, tab === 'login' ? '#l-email' : '#s-name'); };
   document.addEventListener('click', e => {
     const a = e.target.closest('[data-auth]'); if (a) { e.preventDefault(); openAuth(a.dataset.auth); }
     const c = e.target.closest('[data-close]'); if (c) closeModal(c.closest('.modal'));
@@ -1354,7 +1404,7 @@
     if (!email || !pw) return setAuthMsg('이메일과 비밀번호를 입력해 주세요.');
     const btn = e.submitter || $('#loginForm button[type=submit]');
     busy(btn, true, '로그인 중…');
-    try { await Store.signIn(email, pw, keepLogin()); ls.set('last-email', email); closeModal(authModal); $('#l-pw').value = ''; toast('로그인했습니다. 환영합니다!'); }
+    try { await storeReady; await Store.signIn(email, pw, keepLogin()); ls.set('last-email', email); closeModal(authModal); $('#l-pw').value = ''; toast('로그인했습니다. 환영합니다!'); }
     catch (err) { setAuthMsg(authErr(err.code)); }
     finally { busy(btn, false, '로그인'); }
   });
@@ -1371,6 +1421,7 @@
     if (kind === 'kakao' && !SOCIAL.kakao && Store.mode !== 'demo') return setAuthMsg('카카오 로그인은 준비 중입니다. Google 또는 이메일로 가입해 주세요.');
     setAuthMsg('');
     try {
+      await storeReady;
       const r = await Store.social(kind, keepLogin());
       closeModal(authModal);
       myProfile = await Store.getProfile(me?.uid || firebase.auth().currentUser.uid).catch(() => myProfile);
@@ -1397,6 +1448,7 @@
     const btn = $('#signupForm button[type=submit]');
     busy(btn, true, '가입하는 중…');
     try {
+      await storeReady;
       await Store.signUp(email, pw, { name: v('s-name'), phone: v('s-phone'), company: v('s-company'), marketing: $('#s-mkt').checked, privacyAgreed: true });
       closeModal(authModal); $('#signupForm').reset(); toast('회원가입이 완료되었습니다!');
     } catch (err) { setAuthMsg(authErr(err.code)); }
@@ -1416,14 +1468,15 @@
   const tierBadge = pts => { const t = tierOf(pts).tier; return `<span class="tier-badge t-${t.color}">${esc(t.name)}</span>`; };
   function welcomeMileage() { return MILEAGE.signupBonus ? { mileage: MILEAGE.signupBonus, mileageLog: [{ amt: MILEAGE.signupBonus, reason: '회원가입 축하 적립', at: nowISO() }] } : {}; }
   // 가격 섹션의 등급 안내 카드
-  $('#mileIntro').textContent = `회원가입하면 ${fmtP(MILEAGE.signupBonus)}, 결제할 때마다 금액의 ${Math.round(MILEAGE.payRate * 100)}%가 쌓입니다. 등급이 오르면 무료 수정 횟수가 늘어납니다.`;
-  $('#tierCards').innerHTML = MILEAGE.tiers.map(t => `
+  if ($('#mileIntro')) $('#mileIntro').textContent = `회원가입하면 ${fmtP(MILEAGE.signupBonus)}, 결제할 때마다 금액의 ${Math.round(MILEAGE.payRate * 100)}%가 쌓입니다. 등급이 오르면 무료 수정 횟수가 늘어납니다.`;
+  if ($('#tierCards')) $('#tierCards').innerHTML = MILEAGE.tiers.map(t => `
     <div class="tier-card t-${t.color}">
       <span class="tier-badge t-${t.color}">${esc(t.name)}</span>
       <p class="mt-4 text-[13px] text-dim num">${t.min ? fmtP(t.min) + ' 이상' : '가입 즉시'}</p>
       <p class="mt-1 text-[18px] font-bold tracking-[-0.02em]">무료 수정 <span class="tier-num">${revText(t)}</span></p>
     </div>`).join('');
   const renderMileCard = () => {
+    if (!$('#mileCard')) return;
     const p = myProfile || {}, info = tierOf(p.mileage), log = [...(p.mileageLog || [])].reverse().slice(0, 5);
     $('#mileCard').innerHTML = `
       <div class="flex items-start justify-between gap-4">
@@ -1478,6 +1531,56 @@
     finally { busy(btn, false, '적용하기'); }
   });
 
+  /* ── 관리자: 회원별 사진 · 파일 보관함 ── */
+  const filesModal = $('#filesModal'); let fileRows = [];
+  const fmtSize2 = b => b > 1048576 ? (b / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(b / 1024)) + 'KB';
+  const dataUrlToBlob = u => { const [h, d] = u.split(','); const mime = (h.match(/data:([^;]+)/) || [])[1] || 'application/octet-stream'; const bin = atob(d); const a = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) a[i] = bin.charCodeAt(i); return new Blob([a], { type: mime }); };
+  const saveBlob = async (name, blob) => {
+    const dl = window.claude?.use ? await window.claude.use('downloads').catch(() => null) : null;
+    if (dl) { try { await dl.save({ filename: name, data: blob }); } catch {} return; }
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1500);
+  };
+  const downloadOne = async f => { const u = await Store.getAttachmentData(f.id); if (!u) throw new Error('empty'); await saveBlob(f.name, dataUrlToBlob(u)); };
+  const openFiles = async user => {
+    $('#filesWho').textContent = `${user.name || '이름 없음'} · ${user.email || ''}`;
+    $('#filesList').innerHTML = '<li class="text-dim text-[14px]">불러오는 중…</li>'; $('#filesMsg').textContent = '';
+    openModal(filesModal, '#filesAll');
+    try { fileRows = (await Store.listAttachments(user.id)).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || '')); }
+    catch { fileRows = []; $('#filesMsg').textContent = '파일 목록을 불러오지 못했습니다. 보안 규칙을 확인해 주세요.'; }
+    $('#filesAll').hidden = !fileRows.length;
+    $('#filesList').innerHTML = fileRows.length ? fileRows.map(f => `
+      <li class="file-row">
+        <div class="file-thumb" data-thumb="${esc(f.id)}">${/^image\//.test(f.type) ? '<span class="text-dim text-[11px]">미리보기</span>' : `<span class="thumb-doc">${esc((f.name.split('.').pop() || 'FILE').toUpperCase())}</span>`}</div>
+        <div class="min-w-0 flex-1"><p class="truncate text-[13.5px] font-medium">${esc(f.name)}</p><p class="text-[12px] text-dim">${esc(f.kind || '')} · ${fmtSize2(f.size || 0)} · ${fmtDate(f.createdAt)}</p></div>
+        <div class="flex flex-col gap-1.5"><button type="button" class="del-btn mile-btn" data-dl="${esc(f.id)}">다운로드</button><button type="button" class="del-btn" data-fdel="${esc(f.id)}">삭제</button></div>
+      </li>`).join('') : '<li class="text-dim text-[14px]">아직 등록한 사진 · 파일이 없습니다.</li>';
+    // 사진 미리보기는 하나씩 불러옴
+    for (const f of fileRows.filter(x => /^image\//.test(x.type)).slice(0, 24)) {
+      try { const u = await Store.getAttachmentData(f.id); const box = filesModal.querySelector(`[data-thumb="${CSS.escape(f.id)}"]`); if (box && u) box.innerHTML = `<img src="${u}" alt="">`; } catch {}
+    }
+  };
+  $('#adminBody').addEventListener('click', e => {
+    const b = e.target.closest('[data-files]'); if (!b) return;
+    const user = adminRows.users.find(u => u.id === b.dataset.files); if (user) openFiles(user);
+  });
+  $('#filesList').addEventListener('click', async e => {
+    const d = e.target.closest('[data-dl]'), x = e.target.closest('[data-fdel]');
+    if (d) { const f = fileRows.find(r => r.id === d.dataset.dl); d.disabled = true; d.textContent = '받는 중…'; try { await downloadOne(f); } catch { toast('다운로드하지 못했습니다.'); } d.disabled = false; d.textContent = '다운로드'; }
+    if (x) {
+      if (!x.dataset.armed) { x.dataset.armed = '1'; x.textContent = '삭제 확인'; x.classList.add('armed'); setTimeout(() => { if (x.isConnected) { delete x.dataset.armed; x.textContent = '삭제'; x.classList.remove('armed'); } }, 4000); return; }
+      try { await Store.deleteAttachment(x.dataset.fdel); fileRows = fileRows.filter(r => r.id !== x.dataset.fdel); x.closest('.file-row').remove(); toast('파일을 삭제했습니다.'); } catch { toast('삭제하지 못했습니다.'); }
+    }
+  });
+  $('#filesAll').addEventListener('click', async () => {
+    const btn = $('#filesAll'); btn.disabled = true;
+    for (let i = 0; i < fileRows.length; i++) {
+      btn.querySelector('span').textContent = `받는 중 ${i + 1}/${fileRows.length}`;
+      try { await downloadOne(fileRows[i]); await new Promise(r => setTimeout(r, 400)); } catch {}
+    }
+    btn.querySelector('span').textContent = '전체 다운로드'; btn.disabled = false;
+    $('#filesMsg').textContent = '브라우저가 "여러 파일 다운로드"를 물어보면 허용을 눌러 주세요.';
+  });
+
   /* ── 로그인 후: 계정 메뉴 · 내 정보 ── */
   const userMenu = $('#userMenu'), userChip = $('#userChip');
   userChip.addEventListener('click', () => { const open = userMenu.hidden; userMenu.hidden = !open; userChip.setAttribute('aria-expanded', open); });
@@ -1528,10 +1631,10 @@
     $('#userName').textContent = nm; $('#userInitial').textContent = nm.trim().charAt(0).toUpperCase();
     $('#menuAdmin').hidden = !isAdmin();
     $('#adminBadge').hidden = !isAdmin();
-    if (me) { const info = tierOf(myProfile?.mileage); $('#menuMile').innerHTML = `<span class="text-dim text-[12px]">내 마일리지</span><b class="num">${fmtP(info.pts)}</b>${tierBadge(info.pts)}`; }
-    $('#mileJoin').hidden = !!me;
+    if (me && $('#menuMile')) { const info = tierOf(myProfile?.mileage); $('#menuMile').innerHTML = `<span class="text-dim text-[12px]">내 마일리지</span><b class="num">${fmtP(info.pts)}</b>${tierBadge(info.pts)}`; }
+
     $('#admin').hidden = !isAdmin();
-    $('#memberHint').hidden = !!me;
+
     if (me && myProfile) {
       if (!$('#b-name').value && myProfile.company) $('#b-name').value = myProfile.company;
       if (!$('#b-contact').value && myProfile.phone) $('#b-contact').value = myProfile.phone;
@@ -1557,9 +1660,9 @@
     const hit = r => !q || Object.values(r).some(v => String(v ?? '').toLowerCase().includes(q));
     const head = $('#adminHead'), body = $('#adminBody');
     if (adminTab === 'users') {
-      head.innerHTML = '<tr><th>이름</th><th>이메일</th><th>연락처</th><th>마일리지 · 등급</th><th>회사 · 상호</th><th>가입일</th><th></th></tr>';
+      head.innerHTML = '<tr><th>이름</th><th>이메일</th><th>연락처</th><th>회사 · 상호</th><th>가입일</th><th></th></tr>';
       const rows = adminRows.users.filter(hit);
-      body.innerHTML = rows.length ? rows.map(r => `<tr><td class="font-medium">${esc(r.name)}</td><td class="select-all">${esc(r.email)}</td><td class="num">${esc(r.phone) || '—'}</td><td class="num"><b class="font-semibold">${fmtP(r.mileage)}</b> ${tierBadge(r.mileage)}</td><td>${esc(r.company) || '—'}</td><td class="num">${fmtDate(r.createdAt)}</td><td class="text-right whitespace-nowrap"><button type="button" class="del-btn mile-btn" data-mile="${esc(r.id)}">마일리지</button> <button type="button" class="del-btn" data-del="user:${esc(r.id)}">삭제</button></td></tr>`).join('')
+      body.innerHTML = rows.length ? rows.map(r => `<tr><td class="font-medium">${esc(r.name)}</td><td class="select-all">${esc(r.email)}</td><td class="num">${esc(r.phone) || '—'}</td><td>${esc(r.company) || '—'}</td><td class="num">${fmtDate(r.createdAt)}</td><td class="text-right whitespace-nowrap"><button type="button" class="del-btn mile-btn" data-files="${esc(r.id)}">파일</button> <button type="button" class="del-btn" data-del="user:${esc(r.id)}">삭제</button></td></tr>`).join('')
         : `<tr><td colspan="7" class="empty">${q ? '검색 결과가 없습니다.' : '아직 가입한 회원이 없습니다.'}</td></tr>`;
     } else {
       head.innerHTML = '<tr><th>접수일</th><th>상호명</th><th>연락처</th><th>희망 패키지</th><th>회원</th><th>의뢰서</th><th></th></tr>';
@@ -1597,13 +1700,14 @@
   function toast(t) { toastEl.textContent = t; toastEl.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => toastEl.hidden = true, 2800); }
 
   /* ── 시작 ── */
-  (async () => {
+  const storeReady = (async () => {
     try { await Store.init(); }
     catch { Store = DemoStore; toast('데이터베이스에 연결하지 못해 체험 모드로 동작합니다.'); }
     Store.onAuth(async u => {
       me = u; myProfile = null;
       if (u) { try { myProfile = await Store.getProfile(u.uid); } catch {} }
       renderAuth();
+      if (u && pendingSubmit) { pendingSubmit = false; setTimeout(() => submitBtn.click(), 300); }
     });
   })();
 
