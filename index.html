@@ -594,9 +594,8 @@
               <label class="brief-field sm:col-span-2"><span>오시는 길 (주소)</span><input id="b-addr" data-q="오시는 길 (주소)" placeholder="예: 경기도 양주시 ○○로 123, 2층"></label>
             </div>
           </fieldset>
-          <div class="grid sm:grid-cols-2 gap-3 pt-2">
-            <button type="button" id="briefSubmit" class="btn-main btn-ic h-13 px-6 rounded-full text-center text-[15.5px] font-semibold whitespace-nowrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg><span>버튼 한 번으로 신청하기</span></button>
-            <button type="button" id="briefCopy" class="btn-ghost btn-ic h-13 px-6 rounded-full text-center text-[15.5px] font-medium whitespace-nowrap"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>작성 내용 복사하기</span></button>
+          <div class="pt-2">
+            <button type="button" id="briefCopy" class="btn-main btn-ic w-full h-13 px-6 rounded-full text-center text-[15.5px] font-semibold whitespace-nowrap"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>작성 내용 복사하기</span></button>
           </div>
           <div class="flex flex-wrap items-center gap-3 -mt-1">
             <p id="briefMsg" class="text-[13.5px] text-mute" role="status" aria-live="polite"></p>
@@ -1154,7 +1153,7 @@ function updateShare() {}
   // 버튼 한 번으로 신청하기: 작성한 의뢰서를 이메일로 바로 접수 (FormSubmit 이용)
   const submitBtn = $('#briefSubmit'), mailFallback = $('#briefMailFallback');
   const say = (text, color) => { msg.style.color = color || 'var(--mute)'; msg.textContent = text; };
-  submitBtn.addEventListener('click', async () => {
+  if (submitBtn) submitBtn.addEventListener('click', async () => {
     mailFallback.hidden = true;
     const contact = $('#b-contact').value.trim();
     if (!contact) { say('답변드릴 연락처(전화번호 또는 카카오톡 채널)를 적어주세요.', 'var(--warn, #ffb547)'); $('#b-contact').focus(); return; }
@@ -1707,7 +1706,7 @@ function updateShare() {}
       me = u; myProfile = null;
       if (u) { try { myProfile = await Store.getProfile(u.uid); } catch {} }
       renderAuth();
-      if (u && pendingSubmit) { pendingSubmit = false; setTimeout(() => submitBtn.click(), 300); }
+      if (u && pendingSubmit && submitBtn) { pendingSubmit = false; setTimeout(() => submitBtn.click(), 300); }
     });
   })();
 
