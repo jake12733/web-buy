@@ -315,6 +315,33 @@
   .menu-mile:hover { background: none !important; }
   .menu-mile b { color: var(--fg); margin-left: auto; }
   .mile-btn { color: var(--accent); border-color: rgba(143,179,255,.4); }
+  /* 오른쪽 빠른 메뉴 */
+  .quick { position: fixed; z-index: 45; right: calc(env(safe-area-inset-right, 0px) + 18px); top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; width: 74px; border-radius: 20px; overflow: visible;
+    background: rgba(16,18,24,.82); border: 1px solid var(--line-2); backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%);
+    box-shadow: 0 24px 60px -24px rgba(0,0,0,.9), 0 0 0 1px rgba(0,0,0,.3); }
+  .q-item { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 13px 6px 12px;
+    font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .1em; color: var(--mute); transition: color .2s, background .2s; }
+  .q-item + .q-item { border-top: 1px solid var(--line); }
+  .q-item:hover { color: var(--fg); background: rgba(255,255,255,.04); }
+  .q-top { flex-direction: row; justify-content: center; gap: 5px; padding: 11px 6px; border-radius: 19px 19px 0 0; color: #0a0b0e; font-weight: 700;
+    background: linear-gradient(180deg, #ffffff, #dfe3ec); }
+  .q-top:hover { color: #0a0b0e; background: linear-gradient(180deg, #ffffff, #cfd6e4); }
+  .q-item:last-child { border-radius: 0 0 19px 19px; }
+  .q-ic { width: 38px; height: 38px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; transition: transform .25s; }
+  .q-item:hover .q-ic { transform: translateY(-2px) scale(1.05); }
+  .q-kakao { background: #fee500; box-shadow: 0 6px 18px -8px rgba(254,229,0,.8); }
+  .q-mail { color: #0a0b0e; background: linear-gradient(145deg, #e3ecff, #8fb3ff); box-shadow: 0 6px 18px -8px rgba(143,179,255,.9); }
+  .q-item[data-tip]::after { content: attr(data-tip); position: absolute; right: calc(100% + 12px); top: 50%; transform: translate(6px, -50%); opacity: 0; pointer-events: none;
+    white-space: nowrap; padding: 8px 12px; border-radius: 10px; font-family: var(--font-sans); font-size: 13px; letter-spacing: 0; color: var(--fg);
+    background: rgba(16,18,24,.96); border: 1px solid var(--line-2); box-shadow: 0 14px 30px -12px rgba(0,0,0,.8); transition: opacity .2s, transform .2s; }
+  .q-item[data-tip]:hover::after, .q-item[data-tip]:focus-visible::after { opacity: 1; transform: translate(0, -50%); }
+  @media (max-width: 640px) {
+    .quick { top: auto; transform: none; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); right: calc(env(safe-area-inset-right, 0px) + 12px); width: 60px; border-radius: 18px; }
+    .q-item { padding: 10px 4px 9px; font-size: 9.5px; }
+    .q-ic { width: 32px; height: 32px; }
+    .q-item[data-tip]::after { display: none; }
+  }
   .contact-item { border-radius: 18px; background: rgba(255,255,255,.035); border: 1px solid var(--line); }
 
   .motion .rv { transform: translateY(28px); transition: transform 1s cubic-bezier(.2,.7,.2,1); }
@@ -741,6 +768,21 @@
   </div>
 </div>
 
+<!-- ═════════ 오른쪽 빠른 메뉴 (스크롤해도 고정) ═════════ -->
+<nav class="quick" aria-label="빠른 상담">
+  <button type="button" class="q-item q-top" id="qTop" aria-label="맨 위로">
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 5l7 8H5z" fill="currentColor"/></svg><span>TOP</span>
+  </button>
+  <a class="q-item" id="qKakao" href="#" target="_blank" rel="noopener" data-tip="카카오톡 오픈채팅 상담">
+    <span class="q-ic q-kakao"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#191919" d="M12 3.6c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-.9 3.4c-.1.3.3.6.6.4l4-2.6c.4 0 .7.1 1.1.1 5 0 9-3.1 9-7s-4-7.3-9-7.3z"/><text x="12" y="12.6" text-anchor="middle" font-size="5.2" font-weight="800" fill="#fee500" font-family="Arial, sans-serif">TALK</text></svg></span>
+    <span>KAKAO</span>
+  </a>
+  <a class="q-item" id="qMail" href="#" target="_blank" rel="noopener" data-tip="">
+    <span class="q-ic q-mail"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span>
+    <span>EMAIL</span>
+  </a>
+</nav>
+
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
 <footer class="gutter pb-10">
@@ -1091,6 +1133,14 @@
   };
   ['pointerenter', 'focus', 'pointerdown', 'click'].forEach(ev => { gmailBtn.addEventListener(ev, setMailLinks); mailtoBtn.addEventListener(ev, setMailLinks); });
   setMailLinks();
+  // 오른쪽 빠른 메뉴
+  $('#qTop').addEventListener('click', () => scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+  $('#qKakao').href = CONTACT.chat;
+  const qMail = $('#qMail');
+  qMail.dataset.tip = `${CONTACT.email} · 메일 바로 쓰기`;
+  ['pointerenter', 'focus', 'pointerdown', 'click'].forEach(ev => qMail.addEventListener(ev, () => { setMailLinks(); qMail.href = gmailBtn.href; }));
+  setMailLinks(); qMail.href = gmailBtn.href;
+
   // 버튼 한 번으로 신청하기: 작성한 의뢰서를 이메일로 바로 접수 (FormSubmit 이용)
   const submitBtn = $('#briefSubmit'), mailFallback = $('#briefMailFallback');
   const say = (text, color) => { msg.style.color = color || 'var(--mute)'; msg.textContent = text; };
