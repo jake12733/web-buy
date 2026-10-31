@@ -567,7 +567,6 @@
             <div class="grid sm:grid-cols-2 gap-4">
               <label class="brief-field"><span>상호명 (브랜드명)</span><input id="b-name" data-q="상호명 (브랜드명)" placeholder="예: 클리네이처"></label>
               <label class="brief-field"><span>업종</span><input id="b-biz" data-q="업종" placeholder="예: 청소업체, 병원, 뷰티숍 등"></label>
-              <label class="brief-field sm:col-span-2"><span>원하시는 도메인 주소</span><input id="b-domain" data-q="원하시는 도메인 주소" placeholder="예: cleanature.co.kr · 없으시면 상담 가능"></label>
             </div>
           </fieldset>
 
@@ -1064,8 +1063,7 @@ function updateShare() {}
       ...(!blank && chosenPkg ? [`- 희망 패키지: ${chosenPkg.name} 패키지 (${won(chosenPkg.price)})`, ''] : []),
       '1. 기본 정보',
       `- 상호명 (브랜드명): ${v('b-name')}`,
-      `- 업종: ${v('b-biz')}`,
-      `- 원하시는 도메인 주소: ${v('b-domain')}`, '',
+      `- 업종: ${v('b-biz')}`, '',
       '2. 브랜드 및 카피라이팅 컨셉',
       `- 핵심 슬로건: ${v('b-slogan')}`,
       '- 가장 큰 강점 (3가지):',
