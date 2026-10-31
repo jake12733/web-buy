@@ -476,7 +476,7 @@
           </div>
           <button type="button" data-auth="signup" class="btn-ghost h-10 px-5 rounded-full text-[14px] font-medium whitespace-nowrap self-start md:self-auto" id="mileJoin">회원가입하고 받기</button>
         </div>
-        <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3" id="tierCards"></div>
+        <div class="mt-6 grid sm:grid-cols-3 gap-3" id="tierCards"></div>
       </div>
     </div>
 
@@ -773,7 +773,6 @@
       { name: '웰컴',     min: 0,      revisions: 2,  color: 'welcome' },
       { name: '실버',     min: 30000,  revisions: 3,  color: 'silver' },
       { name: '골드',     min: 80000,  revisions: 5,  color: 'gold' },
-      { name: '플래티넘', min: 150000, revisions: 0,  color: 'platinum' },   // 0 = 무제한
     ],
   };
   // 간편 로그인: Firebase 콘솔에서 해당 로그인 방법을 켠 뒤 true / 공급업체 ID를 넣으세요.
@@ -1382,7 +1381,7 @@
         <div class="text-right">${tierBadge(info.pts)}<p class="mt-2 text-[13px] text-mute">무료 수정 <b class="text-ink">${revText(info.tier)}</b></p></div>
       </div>
       <div class="mile-bar mt-4"><span style="width:${Math.round(info.progress * 100)}%"></span></div>
-      <p class="mt-2 text-[12.5px] text-mute">${info.next ? `${fmtP(info.next.min - info.pts)} 더 모으면 <b class="text-ink">${esc(info.next.name)}</b> 등급 · 무료 수정 ${revText(info.next)}` : '최고 등급입니다. 수정을 무제한으로 받으실 수 있습니다.'}</p>
+      <p class="mt-2 text-[12.5px] text-mute">${info.next ? `${fmtP(info.next.min - info.pts)} 더 모으면 <b class="text-ink">${esc(info.next.name)}</b> 등급 · 무료 수정 ${revText(info.next)}` : `최고 등급입니다. 프로젝트마다 무료 수정 ${revText(info.tier)}를 받으실 수 있습니다.`}</p>
       ${log.length ? `<ul class="mt-4 grid gap-1.5">${log.map(l => `<li class="flex items-center justify-between gap-3 text-[13px]"><span class="text-mute truncate">${esc(l.reason)} <span class="text-dim">· ${fmtDate(l.at)}</span></span><b class="num ${l.amt < 0 ? 'text-[#ff9a9a]' : 'text-[color:var(--ok)]'}">${l.amt > 0 ? '+' : ''}${fmtP(l.amt)}</b></li>`).join('')}</ul>` : ''}`;
   };
 
